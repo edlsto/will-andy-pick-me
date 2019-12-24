@@ -10,3 +10,107 @@ light blue background: #E6ECF4;
 clear button: #DE4841;
 clear button disabled: #D0CDCD
 */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+h1 {
+  font-family: 'Life Savers', cursive;
+  text-align: center;
+  color: #2B4E80;
+  margin: 50px;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  text-align: center;
+}
+
+.eight-ball {
+  background-color: #E6ECF4;
+  width: 450px;
+  padding: 20px;
+  margin-right: 60px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.get-your-answer {
+  background-color: #2B4E80;
+  color: white;
+  height: 40px;
+  font-size: 15px;
+}
+
+.get-your-answer:hover {
+  background-color: #1C3455;
+}
+
+.get-your-answer[disabled] {
+  background-color: #607AA0;
+}
+
+
+
+
+
+.clear {
+  color: white;
+  height: 40px;
+  font-size: 15px;
+  width: 70px;
+  align-self: flex-end;
+  margin-top: auto;
+  background-color: #DE4841;
+}
+
+.clear[disabled] {
+  background-color: #D0CDCD;
+}
+
+.eight-ball-img {
+  height: 120px;
+  position: absolute;
+  left: 140px;
+  top: 40px
+}
+
+.img-container {
+  position: relative;
+  align-items: center;
+}
+
+input {
+  height: 40px;
+  outline: none;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.woody {
+  width: 300px;
+  object-fit: contain;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 70px;
+  font-style: italic;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 5px;
+}
+
+.hidden {
+  display: none;
+}
