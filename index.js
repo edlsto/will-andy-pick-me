@@ -3,25 +3,45 @@
 var form = document.querySelector('input');
 var clear = document.querySelector('.clear');
 var submit = document.querySelector('.get-your-answer');
-var questionDisplay = document.querySelector('.question');
-var answerDisplay = document.querySelector('.answer');
+var favorite = document.querySelector('.favorite')
 var eightBallImg = document.querySelector('.eight-ball-img');
-var eightBallContainer = document.querySelector('.img-container');
-
+var eightBallContainer = document.querySelector('.img-q-a-container');
+var game = document.querySelector('.game-container');
 form.addEventListener('keyup', checkForm);
 submit.addEventListener('click', provideAnswer);
+favorite.addEventListener('click', addFavorite);
+var answer;
+var userQuestion;
+function addFavorite() {
+  var table = `
+      <div class="favorites-list">
+        <div class="fav-q-a">
+          <p class="fav-question">${userQuestion}</p>
+          <p class="fav-answer">${answer}</p>
+        </div>
+      </div>`
+    game.insertAdjacentHTML('afterend', table)
+    favorite.setAttribute('disabled', 'disabled')
+
+}
+
+
 
 function provideAnswer(event) {
-  eightBallContainer.innerHTML = '';
-  var userQuestion = form.value;
+  eightBallContainer.innerHTML = '<p class="question"></p><h2 class="answer"></h2>';
+  var questionDisplay = document.querySelector('.question');
+  var answerDisplay = document.querySelector('.answer');
+  userQuestion = form.value;
   questionDisplay.innerText = '"' + userQuestion + '"';
   var randomNumber = (Math.floor(Math.random() * answers.length));
-  answerDisplay.innerText = answers[randomNumber];
+  answer = answers[randomNumber];
+  answerDisplay.innerText = answer;
+  favorite.removeAttribute('disabled')
+  form.value = '';
 }
 
 
 function checkForm(event) {
-  console.log(event.target.value)
   if (event.target.value !== "") {
     clear.removeAttribute('disabled');
     submit.removeAttribute('disabled');
@@ -35,11 +55,10 @@ clear.addEventListener('click', clearForm);
 
 function clearForm() {
   form.value = '';
-  questionDisplay.innerText = '';
-  answerDisplay.innerText = '';
-  if (eightBallContainer.innerHTML === '') {
+  if (eightBallContainer.innerHTML !== '<img class="eight-ball-img" src="./assets/eight-ball.png">') {
     eightBallContainer.innerHTML = '<img class="eight-ball-img" src="./assets/eight-ball.png">'
   }
+  favorite.setAttribute('disabled', 'disabled')
 }
 
 
