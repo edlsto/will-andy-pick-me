@@ -38,6 +38,7 @@ function provideAnswer(event) {
   answerDisplay.innerText = answer;
   favorite.removeAttribute('disabled')
   form.value = '';
+  submit.setAttribute('disabled', 'disabled');
 }
 
 
@@ -59,6 +60,7 @@ function clearForm() {
     eightBallContainer.innerHTML = '<img class="eight-ball-img" src="./assets/eight-ball.png">'
   }
   favorite.setAttribute('disabled', 'disabled')
+  clear.setAttribute('disabled', 'disabled');
 }
 
 
